@@ -1,9 +1,9 @@
 Trello link: (https://trello.com/invite/b/qriuh0Ww/ATTIe300c7590a4d9640f336d5268b43b9005F18E57E/9-4-youtube-project-clone)
 
 | Developers Names  | 
-| ----------------- | 
+| ------------- | 
 | Evan Velush       | 
-| ----------------- | 
+| ------------- |
 | Jacqueline Pasaoa | 
 
 
