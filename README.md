@@ -1,4 +1,13 @@
-# Getting Started with Create React App
+Trello link: (https://trello.com/invite/b/qriuh0Ww/ATTIe300c7590a4d9640f336d5268b43b9005F18E57E/9-4-youtube-project-clone)
+
+| Developers Names  | 
+| ----------------- | 
+| Evan Velush       | 
+| ----------------- | 
+| Jacqueline Pasaoa | 
+
+
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -67,4 +76,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
