@@ -3,7 +3,6 @@ Trello link: (https://trello.com/invite/b/qriuh0Ww/ATTIe300c7590a4d9640f336d5268
 | Developers Names  | 
 | ------------- | 
 | Evan Velush       | 
-| ------------- | 
 | Jacqueline Pasaoa | 
 
 
