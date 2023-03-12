@@ -1,4 +1,3 @@
-import Footer from "./components/common/Footer";
 import Navbar from "./components/common/Navbar";
 import About from "./components/about/About";
 import SearchBar from "./components/common/SearchBar";
@@ -25,7 +24,6 @@ function App() {
 
       </Routes>
 
-      <Footer />
     </div>
   );
 }
