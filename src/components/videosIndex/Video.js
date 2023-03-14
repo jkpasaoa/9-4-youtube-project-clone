@@ -3,7 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import Youtube from "react-youtube";
 //import { KEY } from "../../api/fetch";
 
-const Videos = () => {
+const Video = () => {
     // const { videoID } = useParams();
     const navigate = useNavigate();
     const [videoData, setVideoData] = useState(null);
@@ -35,4 +35,4 @@ const Videos = () => {
   );
 };
 
-export default Videos;
+export default Video;
