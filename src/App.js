@@ -18,7 +18,6 @@ function App() {
       <Navbar />
       <SearchBar setSearchInput={setSearchInput} />
       <Routes>
-
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         {/* <Route path="/videos/:videoId" element={<Videos />} /> */}
