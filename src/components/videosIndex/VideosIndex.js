@@ -5,7 +5,7 @@ import Video from "./Video"
 export default function VideosIndex() {
     return(
         <div>
-
+            <h4>Now you are looking at videos!</h4>
         </div>
     )
 }

@@ -12,17 +12,28 @@ import "./App.css";
 function App() {
 
   const [searchInput, setSearchInput] = useState("");
+  const [searchTitle, setSearchTitle] = useState("");
 
   return (
     <div className="App">
 
       <Navbar />
-      <SearchBar setSearchInput={setSearchInput} />
+      <SearchBar
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
+        setSearchTitle={setSearchTitle}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         {/* <Route path="*" element={<ErrorMessage />} /> */}
-        <Route path="/videos" element={<VideosIndex />} />
+        <Route
+          path="/videos"
+          element={
+            <VideosIndex
+              searchInput={searchInput}
+              searchTitle={searchTitle}
+            />} />
 
       </Routes>
 
