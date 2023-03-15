@@ -1,0 +1,16 @@
+.error {
+  font-family: Georgia;
+  text-align: center;
+}
+
+.error h1, .error h3, .error p {
+  text-align: center;
+}
+
+.error-photo {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  width: 50px;
+  height: auto;
+}

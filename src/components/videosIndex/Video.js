@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Youtube from "react-youtube";
+import ErrorMessage from "../errors/ErrorMessage";
 //import { KEY } from "../../api/fetch";
 
 const Video = () => {
@@ -16,7 +17,14 @@ const Video = () => {
     }, []);
 
     if(!videoData) {
-        return <div>Loading...</div>;
+        return <div>
+          {/* uncomment out once video and videosIndex are working */}
+                {/* <ul className="test-error">
+                <Link to="*">
+                  <span>testError</span>
+                </Link>
+                </ul> */}
+          </div>;
     }
 
     const opts = {
