@@ -10,6 +10,7 @@
   font-size: 30px;
   font-weight: bold;
   color: white;
+  padding-left: 15px;
 }
 
 .nav-links {
@@ -17,6 +18,7 @@
   display: flex;
   align-items: center;
   margin-right: auto;
+  padding-top: 10px;
 }
 
 .nav-links li a {

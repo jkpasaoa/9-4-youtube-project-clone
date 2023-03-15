@@ -26,7 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        {/* <Route path="*" element={<ErrorMessage />} /> */}
+        <Route path="*" element={<ErrorMessage />} />
         <Route
           path="/videos"
           element={

@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
 export default function SearchBar({ searchInput, setSearchInput, setSearchTitle }) {
@@ -13,7 +12,8 @@ export default function SearchBar({ searchInput, setSearchInput, setSearchTitle 
 
     function handleSearch(event) {
         event.preventDefault();
-        // event.searchtext.value = "";
+        let inputField = document.getElementById('searchtext');
+        inputField.value = '';
         setSearchTitle(searchInput);
         console.log(searchInput);
         navigate("/videos");
@@ -26,7 +26,6 @@ export default function SearchBar({ searchInput, setSearchInput, setSearchTitle 
                     type="text"
                     id="searchtext"
                     placeholder="Search"
-                    value={searchInput}
                     onChange={searchChange}
                 />
                 <button type="submit">Search</button>
