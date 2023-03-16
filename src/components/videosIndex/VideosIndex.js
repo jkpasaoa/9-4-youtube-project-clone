@@ -1,17 +1,21 @@
 import { useState, useEffect } from "react"
-import { Link, useParams, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { getAllVids } from "../../api/fetch"
 import Video from "./Video"
 
-export default function VideosIndex({ searchInput, searchTitle }) {
+export default function VideosIndex({ searchInput, setSearchInput, searchTitle, setSearchTitle }) {
 
     const [videoResults, setVideoResults] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         getAllVids(searchTitle)
             .then((response) => {
                 setVideoResults(response);
-                // console.log(videoResults.items);
+            })
+            .catch((err) => {
+                console.log(err);
+                navigate('*');
             })
     }, [searchTitle])
 
@@ -19,20 +23,20 @@ export default function VideosIndex({ searchInput, searchTitle }) {
         <div>
             {
                 videoResults.items?.map((video) => {
-                    console.log(video)
                     const vidId = video.id.videoId;
                     const vidThumbnail = video.snippet.thumbnails.medium.url;
                     const vidTitle = video.snippet.title;
                     const vidChannel = video.snippet.channelTitle;
+                    // console.log(video)
 
                     return (
-                        <Link to={`/${vidId}`}>
-                            <div key={vidId} className="videos">
+                        <div key={vidId} className="videos">
+                            <Link to={`/videos/${vidId}`}>
                                 <img src={vidThumbnail} />
                                 <div>{vidTitle}</div>
                                 <div>{vidChannel}</div>
-                            </div>
-                        </Link>
+                            </Link>
+                        </div>
                     )
                 })
             }

@@ -7,16 +7,21 @@ export default function SearchBar({ searchInput, setSearchInput, setSearchTitle 
     function searchChange(event) {
         const searchText = event.target.value;
         setSearchInput(searchText);
-        console.log(searchInput);
+        // console.log(searchInput);
     }
 
     function handleSearch(event) {
         event.preventDefault();
         let inputField = document.getElementById('searchtext');
-        inputField.value = '';
+        inputField.value = "";
         setSearchTitle(searchInput);
+        setSearchInput("");
         console.log(searchInput);
-        navigate("/videos");
+        if(!searchInput){
+            navigate('*');
+        } else {
+            navigate("/videos");
+        }
     }
 
     return (
