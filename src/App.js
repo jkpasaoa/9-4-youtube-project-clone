@@ -14,6 +14,7 @@ function App() {
 
   const [searchInput, setSearchInput] = useState("");
   const [searchTitle, setSearchTitle] = useState("");
+  const [maxResults, setMaxResults] = useState(10);
 
   return (
     <div className="App">
