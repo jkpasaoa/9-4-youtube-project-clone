@@ -17,12 +17,25 @@ export default function SearchBar({ searchInput, setSearchInput, setSearchTitle 
         setSearchTitle(searchInput);
         setSearchInput("");
         console.log(searchInput);
-        if(!searchInput){
+        if (!searchInput) {
             navigate('*');
         } else {
             navigate("/videos");
         }
     }
+
+    // WORK-IN-PROGRESS
+    // Attempting to get value from dropdown menu below, for MAX RESULTS
+    
+    // window.onload = function () {
+
+    //     let dropDownValue = document.getElementById('maxresults');
+    //     dropDownValue.onChange = (event) => {
+    //         let selectedIndex = dropDownValue.selectedIndex;
+    //         let selectedOption = dropDownValue.options[selectedIndex];
+    //         console.log(selectedIndex, selectedOption.value);
+    //     }
+    // }
 
     return (
         <div className="searchBar">
@@ -34,7 +47,16 @@ export default function SearchBar({ searchInput, setSearchInput, setSearchTitle 
                     onChange={searchChange}
                 />
                 <button type="submit">Search</button>
+
+                <label htmlFor="max-results">Max Results:</label>
+                <select name="results" id="maxresults">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+
+                </select>
             </form>
+
 
         </div>
     )
