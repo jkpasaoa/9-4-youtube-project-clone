@@ -8,20 +8,34 @@ export default function VideosIndex({ searchInput, searchTitle }) {
     const [videoResults, setVideoResults] = useState([]);
 
     useEffect(() => {
-        getAllVids(searchInput)
-        .then((response) => {
-            setVideoResults(response)
-            console.log(videoResults)
-        })
+        getAllVids(searchTitle)
+            .then((response) => {
+                setVideoResults(response);
+                // console.log(videoResults.items);
+            })
     }, [searchTitle])
 
-    // return(
-    //     <div>
-    //        {
-    //         videoResults.items.map((video) => {
-    //             <div key={}>
-    //         })
-    //        }
-    //     </div>
-    // )
+    return (
+        <div>
+            {
+                videoResults.items?.map((video) => {
+                    console.log(video)
+                    const vidId = video.id.videoId;
+                    const vidThumbnail = video.snippet.thumbnails.medium.url;
+                    const vidTitle = video.snippet.title;
+                    const vidChannel = video.snippet.channelTitle;
+
+                    return (
+                        <Link to={`/${vidId}`}>
+                            <div key={vidId} className="videos">
+                                <img src={vidThumbnail} />
+                                <div>{vidTitle}</div>
+                                <div>{vidChannel}</div>
+                            </div>
+                        </Link>
+                    )
+                })
+            }
+        </div>
+    )
 }
