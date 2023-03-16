@@ -7,7 +7,7 @@ export default function SearchBar({ searchInput, setSearchInput, setSearchTitle 
     function searchChange(event) {
         const searchText = event.target.value;
         setSearchInput(searchText);
-        console.log(searchInput);
+        // console.log(searchInput);
     }
 
     function handleSearch(event) {
