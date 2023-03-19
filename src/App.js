@@ -15,6 +15,7 @@ function App() {
   const [searchInput, setSearchInput] = useState("");
   const [searchTitle, setSearchTitle] = useState("");
   const [maxResults, setMaxResults] = useState(10);
+  const [allVid, setAllVid] = useState({});
 
   return (
     <div className="App">
@@ -36,8 +37,9 @@ function App() {
             <VideosIndex
               searchTitle={searchTitle}
               maxResults={maxResults}
+              setAllVid={setAllVid}
             />} />
-        <Route path="/videos/:id" element={<Video />} />
+        <Route path="/videos/:id" element={<Video allVid={allVid} />} />
 
       </Routes>
 

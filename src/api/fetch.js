@@ -14,5 +14,3 @@ export async function getAllVids(searchTerm, results) {
 //     const data = await response.json();
 //     return data;
 // }
-
-

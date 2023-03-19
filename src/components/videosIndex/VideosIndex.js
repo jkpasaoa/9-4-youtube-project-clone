@@ -4,7 +4,7 @@ import { getAllVids } from "../../api/fetch"
 import YouTube from "react-youtube"
 import './VideosIndex.css'
 
-export default function VideosIndex({ searchTitle, maxResults }) {
+export default function VideosIndex({ searchTitle, maxResults, setAllVid }) {
 
     const [videoResults, setVideoResults] = useState([]);
     const navigate = useNavigate();
@@ -13,6 +13,7 @@ export default function VideosIndex({ searchTitle, maxResults }) {
         getAllVids(searchTitle, maxResults)
             .then((response) => {
                 setVideoResults(response);
+                setAllVid(response.items);
             })
             .catch((err) => {
                 console.log(err);
@@ -36,6 +37,10 @@ export default function VideosIndex({ searchTitle, maxResults }) {
         return title.replace(/(&amp;|&quot;|&#39;)/g, found => ex[found]);
     }
 
+    function pauseVideo(event) {
+        event.target.pauseVideo();
+      };
+
     return (
         <div className="videos-index">
             {
@@ -48,8 +53,8 @@ export default function VideosIndex({ searchTitle, maxResults }) {
                     const vidThumbnail = video.snippet.thumbnails.medium.url;
 
                     return (
-                        <div key={vidId} className="video-card">
-                            <YouTube videoId={vidId} opts={opts} />
+                        <div key={vidId} className="video-card" >
+                            <YouTube videoId={vidId} opts={opts} onReady={pauseVideo} />
                             <Link
                                 to={`/videos/${vidId}`}
                                 style={{ color: 'black', textDecoration: 'none' }}>
