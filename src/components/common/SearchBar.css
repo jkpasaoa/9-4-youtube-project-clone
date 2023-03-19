@@ -1,0 +1,19 @@
+.searchBar {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.searchBox {
+    justify-self: right;
+    width: 90%;
+}
+
+#searchText {
+    width: 80%;
+}
+
+.resultsChoice {
+    justify-self: left;
+}
