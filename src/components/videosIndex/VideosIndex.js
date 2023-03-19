@@ -50,7 +50,7 @@ export default function VideosIndex({ searchTitle, maxResults, setAllVid }) {
                     const vidTitle = fixBrokenTitle(video.snippet.title);
                     const vidChannel = video.snippet.channelTitle;
                     // May change back to <YouTube>
-                    const vidThumbnail = video.snippet.thumbnails.medium.url;
+                    // const vidThumbnail = video.snippet.thumbnails.medium.url;
 
                     return (
                         <div key={vidId} className="video-card" >
