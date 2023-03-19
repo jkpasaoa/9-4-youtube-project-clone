@@ -1,35 +1,35 @@
-import { useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom";
 import Youtube from "react-youtube";
+import "./Video.css"
 
-export default function Video() {
+export default function Video({ allVid }) {
   const { id } = useParams();
-  const navigate = useNavigate();
+  // console.log(allVid);
 
-  console.log(id);
+  const singleVid = allVid.filter(vid => vid.id.videoId == id)
+  console.log(singleVid);
+
 
   const opts = {
     height: '500px',
-    width: '95%',
+    width: '80%',
     playerVars: {
       autoplay: 1,
       playsinline: 1
     }
   };
 
-  function pauseVideo(event){
-    event.target.pauseVideo();
-    // const onPlayerReady: YouTubeProps['onReady'] = (event) => {}
-  }
+  function playVideo(event) {
+    event.target.playVideo();
+  };
 
   return (
-    <div>
-      <Youtube videoId={id} opts={opts} onReady={pauseVideo} />
-      {/* <h1>{videoData.snippet.title}</h1>
-      <p>{videoData.snippet.description}</p>
-      <Link to="/">Go back to home page</Link>
-      <button onClick={() => navigate('/')}>Go back to home page</button> */}
+    <div className="singleVid">
+      <Youtube videoId={id} opts={opts} onReady={playVideo} />
+      <div className="vidDescrip">
+        <h1>{singleVid[0].snippet.title}</h1>
+        <p>{singleVid[0].snippet.description}</p>
+      </div>
     </div>
   );
 };
-
