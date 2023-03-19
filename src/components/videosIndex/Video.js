@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Youtube from "react-youtube";
 import "./Video.css"
 
@@ -6,7 +6,7 @@ export default function Video({ allVid }) {
   const { id } = useParams();
   // console.log(allVid);
 
-  const singleVid = allVid.filter(vid => vid.id.videoId == id)
+  const singleVid = allVid.filter(vid => vid.id.videoId === id)
   console.log(singleVid);
 
 
