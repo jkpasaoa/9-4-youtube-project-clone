@@ -7,9 +7,9 @@ import './VideosIndex.css'
 
 export default function VideosIndex({ searchInput, setSearchInput, searchTitle, setSearchTitle, maxResults }) {
 
-    const [videoResults, setVideoResults] = useState([]);
-    const navigate = useNavigate();
-
+  const [videoResults, setVideoResults] = useState([]);
+  const navigate = useNavigate();
+  
     useEffect(() => {
         getAllVids(searchTitle, maxResults)
             .then((response) => {

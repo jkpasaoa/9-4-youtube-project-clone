@@ -1,0 +1,17 @@
+.about {
+  margin: 50px 10% 30px;
+  text-align: left;
+}
+
+.developers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.developer {
+  margin: 5px 20px;
+}
+
+img {
+  border-radius: 10px;
+}
