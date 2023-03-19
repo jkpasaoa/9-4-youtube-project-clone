@@ -1,45 +1,35 @@
-import { useState, useEffect } from "react"
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useEffect } from "react"
+import { useParams, useNavigate } from "react-router-dom";
 import Youtube from "react-youtube";
-//import { KEY } from "../../api/fetch";
 
-const Video = () => {
-  // const { videoID } = useParams();
+export default function Video() {
+  const { id } = useParams();
   const navigate = useNavigate();
-  const [videoData, setVideoData] = useState(null);
 
-  useEffect(() => {
-    fetch(`https://www.googleapis.com/youtube/v3/videos?id=${""}&key=${""}&part=snippet`)
-      .then(response => response.json())
-      .then(data => setVideoData(data.items[0]))
-      .catch(error => console.log(error));
-  }, []);
-
-  if (!videoData) {
-    return <div>
-      {/* uncomment out once video and videosIndex are working */}
-      {/* <ul className="test-error">
-        <Link to="*">
-          <span>testError</span>
-        </Link>
-      </ul> */}
-    </div>;
-  }
+  console.log(id);
 
   const opts = {
-    height: '390',
-    width: '640',
+    height: '500px',
+    width: '95%',
+    playerVars: {
+      autoplay: 1,
+      playsinline: 1
+    }
   };
+
+  function pauseVideo(event){
+    event.target.pauseVideo();
+    // const onPlayerReady: YouTubeProps['onReady'] = (event) => {}
+  }
 
   return (
     <div>
-      <Youtube videoId={""} opts={opts} />
-      <h1>{videoData.snippet.title}</h1>
+      <Youtube videoId={id} opts={opts} onReady={pauseVideo} />
+      {/* <h1>{videoData.snippet.title}</h1>
       <p>{videoData.snippet.description}</p>
       <Link to="/">Go back to home page</Link>
-      <button onClick={() => navigate('/')}>Go back to home page</button>
+      <button onClick={() => navigate('/')}>Go back to home page</button> */}
     </div>
   );
 };
 
-export default Video;

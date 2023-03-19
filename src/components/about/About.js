@@ -29,12 +29,10 @@ const About = () => {
       <div className="developers">
 
         <div className="developer">
-          <p>
             <img src={youtubeCloneTeam.jacquelinePasaoa.image} alt="Jacqueline Pasaoa" style={{ width: "100px" }} />
             <h3>{youtubeCloneTeam.jacquelinePasaoa.name}</h3>
             <p>{youtubeCloneTeam.jacquelinePasaoa.bio}</p>
             <Link to={youtubeCloneTeam.jacquelinePasaoa.github}>Jacqueline's Github</Link>
-          </p>
         </div>
 
         <div className="developer">

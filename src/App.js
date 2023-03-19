@@ -34,10 +34,7 @@ function App() {
           path="/videos"
           element={
             <VideosIndex
-              searchInput={searchInput}
-              setSearchInput={setSearchInput}
               searchTitle={searchTitle}
-              setSearchTitle={setSearchTitle}
               maxResults={maxResults}
             />} />
         <Route path="/videos/:id" element={<Video />} />
