@@ -1,0 +1,11 @@
+.videos-index {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.video-card {
+    width: 380px;
+    margin: 10px 10px;
+    border-radius: 5px;
+}

@@ -1,6 +1,8 @@
-import { useNavigate } from "react-router-dom";
 
-export default function SearchBar({ searchInput, setSearchInput, setSearchTitle }) {
+import { useNavigate } from "react-router-dom";
+import './SearchBar.css'
+
+export default function SearchBar({ searchInput, setSearchInput, setSearchTitle, setMaxResults }) {
 
     const navigate = useNavigate();
 
@@ -12,7 +14,7 @@ export default function SearchBar({ searchInput, setSearchInput, setSearchTitle 
 
     function handleSearch(event) {
         event.preventDefault();
-        let inputField = document.getElementById('searchtext');
+        let inputField = document.getElementById('searchText');
         inputField.value = "";
         setSearchTitle(searchInput);
         setSearchInput("");
@@ -24,9 +26,14 @@ export default function SearchBar({ searchInput, setSearchInput, setSearchTitle 
         }
     }
 
+    function handleMaxResults(event) {
+        console.log(event.target.value);
+        setMaxResults(event.target.value);
+    }
     // WORK-IN-PROGRESS
     // Attempting to get value from dropdown menu below, for MAX RESULTS
-    
+    // Pivoted and instead applied onChange function to the dropdown
+
     // window.onload = function () {
 
     //     let dropDownValue = document.getElementById('maxresults');
@@ -39,24 +46,27 @@ export default function SearchBar({ searchInput, setSearchInput, setSearchTitle 
 
     return (
         <div className="searchBar">
-            <form onSubmit={handleSearch}>
-                <input
-                    type="text"
-                    id="searchtext"
-                    placeholder="Search"
-                    onChange={searchChange}
-                />
-                <button type="submit">Search</button>
+            <div className="searchBox">
+                <form onSubmit={handleSearch}>
+                    <input
+                        type="text"
+                        id="searchText"
+                        placeholder="Search"
+                        onChange={searchChange}
+                    />
+                    <button type="submit">Search</button>
+                </form>
+            </div>
 
+            <div className="resultsChoice">
                 <label htmlFor="max-results">Max Results:</label>
-                <select name="results" id="maxresults">
+                <select name="results" id="maxresults" onChange={handleMaxResults}>
                     <option value="10">10</option>
                     <option value="20">20</option>
                     <option value="30">30</option>
-
                 </select>
-            </form>
 
+            </div>
 
         </div>
     )
