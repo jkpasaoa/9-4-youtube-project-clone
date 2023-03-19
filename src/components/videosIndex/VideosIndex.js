@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { getAllVids } from "../../api/fetch"
-import Video from "./Video"
 import YouTube from "react-youtube"
 import './VideosIndex.css'
 
-export default function VideosIndex({ searchInput, setSearchInput, searchTitle, setSearchTitle, maxResults }) {
+export default function VideosIndex({ searchTitle, maxResults }) {
 
-  const [videoResults, setVideoResults] = useState([]);
-  const navigate = useNavigate();
-  
+    const [videoResults, setVideoResults] = useState([]);
+    const navigate = useNavigate();
+
     useEffect(() => {
         getAllVids(searchTitle, maxResults)
             .then((response) => {
@@ -32,25 +31,30 @@ export default function VideosIndex({ searchInput, setSearchInput, searchTitle, 
         },
     };
 
+    function fixBrokenTitle(title) {
+        const ex = { "&amp;": "&", "&quot;": '"', "&#39;": "'" };
+        return title.replace(/(&amp;|&quot;|&#39;)/g, found => ex[found]);
+    }
 
     return (
         <div className="videos-index">
             {
                 videoResults.items?.map((video) => {
-                    const vidId = video.id.videoId;
-                    // const vidThumbnail = video.snippet.thumbnails.medium.url;
-                    const vidTitle = video.snippet.title;
-                    const vidChannel = video.snippet.channelTitle;
                     // console.log(video)
+                    const vidId = video.id.videoId;
+                    const vidTitle = fixBrokenTitle(video.snippet.title);
+                    const vidChannel = video.snippet.channelTitle;
+                    // May change back to <YouTube>
+                    const vidThumbnail = video.snippet.thumbnails.medium.url;
 
                     return (
                         <div key={vidId} className="video-card">
+                            <YouTube videoId={vidId} opts={opts} />
                             <Link
                                 to={`/videos/${vidId}`}
                                 style={{ color: 'black', textDecoration: 'none' }}>
-                                <YouTube videoId={vidId} opts={opts} />
                                 {/* add youtube options here, commented out thumbnail */}
-                                {/* <img src={vidThumbnail} /> */}
+                                {/* <img src={vidThumbnail} alt={vidId} /> */}
                                 <div>{vidTitle}</div>
                                 <div>{vidChannel}</div>
                             </Link>
