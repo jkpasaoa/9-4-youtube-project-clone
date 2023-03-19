@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function SearchBar({ searchInput, setSearchInput, setSearchTitle }) {
+export default function SearchBar({ searchInput, setSearchInput, setSearchTitle, setMaxResults }) {
 
     const navigate = useNavigate();
 
@@ -24,6 +24,10 @@ export default function SearchBar({ searchInput, setSearchInput, setSearchTitle 
         }
     }
 
+    function handleMaxResults(event) {
+        console.log(event.target.value);
+        setMaxResults(event.target.value);
+    }
     // WORK-IN-PROGRESS
     // Attempting to get value from dropdown menu below, for MAX RESULTS
     
@@ -49,7 +53,7 @@ export default function SearchBar({ searchInput, setSearchInput, setSearchTitle 
                 <button type="submit">Search</button>
 
                 <label htmlFor="max-results">Max Results:</label>
-                <select name="results" id="maxresults">
+                <select name="results" id="maxresults" onChange={handleMaxResults}>
                     <option value="10">10</option>
                     <option value="20">20</option>
                     <option value="30">30</option>

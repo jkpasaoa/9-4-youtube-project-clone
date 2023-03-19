@@ -24,6 +24,7 @@ function App() {
         searchInput={searchInput}
         setSearchInput={setSearchInput}
         setSearchTitle={setSearchTitle}
+        setMaxResults={setMaxResults}
       />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -37,6 +38,7 @@ function App() {
               setSearchInput={setSearchInput}
               searchTitle={searchTitle}
               setSearchTitle={setSearchTitle}
+              maxResults={maxResults}
             />} />
         <Route path="/videos/:id" element={<Video />} />
 

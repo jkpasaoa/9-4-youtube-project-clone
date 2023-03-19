@@ -4,13 +4,13 @@ import { getAllVids } from "../../api/fetch"
 import Video from "./Video"
 import YouTube from "react-youtube"
 
-export default function VideosIndex({ searchInput, setSearchInput, searchTitle, setSearchTitle }) {
+export default function VideosIndex({ searchInput, setSearchInput, searchTitle, setSearchTitle, maxResults }) {
 
     const [videoResults, setVideoResults] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
-        getAllVids(searchTitle)
+        getAllVids(searchTitle, maxResults)
             .then((response) => {
                 setVideoResults(response);
             })
@@ -37,7 +37,7 @@ export default function VideosIndex({ searchInput, setSearchInput, searchTitle, 
             {
                 videoResults.items?.map((video) => {
                     const vidId = video.id.videoId;
-                    const vidThumbnail = video.snippet.thumbnails.medium.url;
+                    // const vidThumbnail = video.snippet.thumbnails.medium.url;
                     const vidTitle = video.snippet.title;
                     const vidChannel = video.snippet.channelTitle;
                     // console.log(video)
