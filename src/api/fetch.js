@@ -6,7 +6,7 @@ export async function getAllVids(searchTerm, results) {
     const response = await fetch(`${BASE_URL}?q=${searchTerm}&part=snippet&maxResults=${results}&key=${KEY}`);
     const data = await response.json();
     return data;
-}
+};
 
 //uncomment out this previous function of fetch to see if videos work
 // export async function getAllVids(searchTerm) {
